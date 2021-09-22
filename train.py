@@ -59,6 +59,7 @@ for epoch in tqdm(range(num_epochs)):
 		disc_fake = disc(fake).reshape(-1)
 		loss_disc_fake = criterion(disc_fake,torch.zeros_like(disc_fake))
 		loss_disc = (loss_disc_real + loss_disc_fake) /2
+		print(loss_disc)
 		disc.zero_grad()
 		loss_disc.backward(retain_graph=True)
 		opt_disc.step()
